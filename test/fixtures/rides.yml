@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: MyString
+  to: MyString
+  date: 2018-11-18 13:14:04
+  current_seats: 1
+  max_seats: 1
+  client_ids: MyString
+
+two:
+  from: MyString
+  to: MyString
+  date: 2018-11-18 13:14:04
+  current_seats: 1
+  max_seats: 1
+  client_ids: MyString

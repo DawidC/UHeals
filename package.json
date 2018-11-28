@@ -1,0 +1,7 @@
+{
+  "name": "UHeals",
+  "private": true,
+  "dependencies": {
+    "create-react-app": "^2.1.1"
+  }
+}

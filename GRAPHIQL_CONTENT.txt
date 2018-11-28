@@ -1,0 +1,125 @@
+# mutation {
+#   createUser(
+#     name: "Julka",
+#     pesel: "95012000000",
+#     role: "1",
+#     authProvider:{
+#       email: {
+#         email: "jul@gmail.com",
+#         password: "123456"
+#       }
+#     }
+#   )
+#   {
+#       id
+#       email
+#       name
+#       pesel
+#       role
+#     }
+# }
+
+# mutation a {
+#   signinUser(
+#     email: {
+#       email: "jul@gmail.com",
+#       password: "123456"
+#     }
+#   ){
+#     token
+#     user {
+#       id
+#     }
+#   }
+# }
+
+mutation create{
+  createRide(
+    from: "",
+    to: "Wrocław Szpital Kliniki2",
+    date: "2018-11-20 12:40:00 UTC",
+    current_seats: 2,
+    max_seats: 2,
+    client_ids: "",
+  ){
+    id
+    from
+    to
+    date
+    current_seats
+    max_seats
+    client_ids
+    driver{
+      id
+      name
+      email
+      pesel
+      role
+    }
+  }
+}
+
+# {
+#   allRides{
+#     id
+#     from
+#     to
+#     date
+#     current_seats
+#     max_seats
+#     client_ids
+# 		driver{
+#       id
+#       name
+#       email
+#       pesel
+#       role
+#     }
+#   }
+# }
+
+
+mutation b{
+  createJoin(rideId:"3"){
+    ride{
+      from
+      to
+    }
+    user{
+      name
+      pesel
+    }
+  }
+  
+}
+
+query allrides{
+  allRides{
+    from
+    to
+    joins{
+      id
+    }
+  }
+}
+
+query allridesfiltered{
+  allRides(filter:{date_contains:"kliniki"}){
+    from
+    to
+    joins{
+      id
+    }
+  }
+}
+
+
+query allridesPagination{
+  allRides(first: 1, skip: 1){
+    from
+    to
+    joins{
+      id
+    }
+  }
+}
